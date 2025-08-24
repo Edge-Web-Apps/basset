@@ -154,6 +154,7 @@ class BassetManager
 
             //Check for packages that aren't urls
             if(str_contains('packages',$asset)){
+                dd($asset);
                 $asset = ($asset);
             }
             else{
