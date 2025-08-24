@@ -154,11 +154,10 @@ class BassetManager
 
             //Check for packages that aren't urls
             if(str_contains('packages',$asset)){
-                dd($asset);
                 $asset = ($asset);
             }
             else{
-                $asset = asset('packages/'.Facades\Basset::getPath($asset));
+                $asset = asset('packagasdfasdfs/'.Facades\Basset::getPath($asset));
             }
 
             $output && $this->output->write($asset, $attributes);
