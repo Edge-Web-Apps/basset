@@ -154,14 +154,14 @@ class BassetManager
 
             //Check for packages that aren't urls
             if(str_contains('packages',$asset)){
-                $asset = ($asset);
+                $output && $this->output->write($asset, $attributes);
+                return $this->loader->finish(StatusEnum::INVALID);
             }
             else{
-                $asset = asset('packagasdfasdfs/'.Facades\Basset::getPath($asset));
+                $asset = asset('packages/'.Facades\Basset::getPath($asset));
+                $output && $this->output->write($asset, $attributes);
+                return $this->loader->finish(StatusEnum::DISABLED);
             }
-
-            $output && $this->output->write($asset, $attributes);
-            return $this->loader->finish(StatusEnum::DISABLED);
         }
 
         // Retrieve from map
