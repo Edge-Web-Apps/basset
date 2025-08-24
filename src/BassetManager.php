@@ -221,7 +221,7 @@ class BassetManager
         }
 
         // Fallback to the CDN/path
-//        $output && $this->output->write($asset, $attributes);
+        $output && $this->output->write($asset, $attributes);
 
         return $this->loader->finish(StatusEnum::INVALID);
     }

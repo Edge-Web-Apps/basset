@@ -88,7 +88,8 @@ class BassetServiceProvider extends ServiceProvider
         $this->callAfterResolving('blade.compiler', function (BladeCompiler $bladeCompiler) {
             // Basset
             $bladeCompiler->directive('basset', function (string $parameter): string {
-                return "<?php Basset::basset({$parameter}); ?>";
+                return asset('packages/'.Basset::getPath($parameter));
+/*                return "<?php Basset::basset({$parameter}); ?>";*/
             });
 
             // Basset Directory
