@@ -149,6 +149,14 @@ class BassetManager
 
         $this->markAsLoaded($path);
 
+        // when in dev mode override, use local packages only
+        if ($this->dev) {
+            $asset = asset('packages/'.Basset::getPath($asset));
+            $output && $this->output->write($asset, $attributes);
+
+            return $this->loader->finish(StatusEnum::DISABLED);
+        }
+
         // Retrieve from map
         $mapped = $this->cacheMap->getAsset($asset);
         if ($mapped && ! $this->dev) {
