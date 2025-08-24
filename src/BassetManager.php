@@ -125,8 +125,7 @@ class BassetManager
     public function getUrl(string $asset): string
     {
         //override to use our approved and personally vetted package versions only- we can keep the versions stable this way, no downloaded packages deployed without approval
-        return asset('packages/'.$this->getPath($asset));
-//        return $this->disk->url($this->getPath($asset));
+        return $this->disk->url($this->getPath($asset));
     }
 
     /**
