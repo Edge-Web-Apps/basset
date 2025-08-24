@@ -118,7 +118,8 @@ class BassetServiceProvider extends ServiceProvider
                 $filePath = Str::of($cleanParameter)->before('?')->before('#');
 
                 if (Str::endsWith($filePath, ['.js', '.css'])) {
-                    return "<?php Basset::basset({$parameter}); ?>";
+                    return asset('packages/'.Basset::getPath($parameter));
+/*                    return "<?php Basset::basset({$parameter}); ?>";*/
                 }
 
                 // in case it's not js or css specifically, we assume it's a block of javascript code.
@@ -135,11 +136,13 @@ class BassetServiceProvider extends ServiceProvider
             });
 
             $bladeCompiler->directive('loadStyleOnce', function (string $parameter): string {
-                return "<?php Basset::basset({$parameter}); ?>";
+                return asset('packages/'.Basset::getPath($parameter));
+/*                return "<?php Basset::basset({$parameter}); ?>";*/
             });
 
             $bladeCompiler->directive('loadScriptOnce', function (string $parameter): string {
-                return "<?php Basset::basset({$parameter}); ?>";
+                return asset('packages/'.Basset::getPath($parameter));
+/*                return "<?php Basset::basset({$parameter}); ?>";*/
             });
         });
     }
