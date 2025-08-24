@@ -151,7 +151,7 @@ class BassetManager
 
         // when in dev mode override, use local packages only
         if ($this->dev) {
-            $asset = asset('packages/'.Backpack\Basset\Facades\Basset::getPath($asset));
+            $asset = asset('packages/'.Facades\Basset::getPath($asset));
             $output && $this->output->write($asset, $attributes);
 
             return $this->loader->finish(StatusEnum::DISABLED);
