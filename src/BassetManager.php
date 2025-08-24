@@ -153,7 +153,7 @@ class BassetManager
         if ($this->dev) {
 
             //Check for packages that aren't urls
-            if(str_contains('/packages',$asset)){
+            if(str_contains('packages',$asset)){
                 $asset = asset($asset);
             }
             else{
