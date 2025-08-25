@@ -2,7 +2,7 @@
 
 return [
     // development mode, assets will not be internalized
-    'dev_mode' => env('BASSET_DEV_MODE', env('APP_ENV') === 'local'),
+    'dev_mode' => env('BASSET_DEV_MODE', true),
 
     // verify ssl certificate while fetching assets
     'verify_ssl_certificate' => env('BASSET_VERIFY_SSL_CERTIFICATE', true),
